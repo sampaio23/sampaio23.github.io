@@ -1,73 +1,125 @@
+
 <html>
 
-<head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
-            body {margin: 0;}
-            
-            ul.topnav {
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
-                overflow: hidden;
-                background-color: #aaaaaa;
-            }
-        
-        ul.topnav li {float: left;}
-        
-        ul.topnav li a {
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-        
-        ul.topnav li a:hover:not(.active) {background-color: #111;}
-        
-        ul.topnav li a.active {background-color: #808080;}
-        
-        ul.topnav li.right {float: right;}
-        
-        @media screen and (max-width: 600px){
-            ul.topnav li.right,
-            ul.topnav li {float: none;}
-        }
-        
-        
-        h1 {
-            text-align: center;
-        }
-        
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-        
-        div {
-            line-height: 1.5;
-        }
-        
-            </style>
-</head>
-
-<body bgcolor="silver">
-    <center>
-        <hr width=80%>
-        <hr width=80%>
-        <h1 style="font: bold 34px arial">Luiz Sampaio</h1>
-        <hr width=80%>
-        <hr width=80%>
-    </center>
-    <center>
-        <ul class="topnav">
-                <li><a class="active" href="index.html">Home</a></li>
-                <li><a href="cv.html">CV</a></li>
-                <li><a href="teaching.html">Teaching</a></li>
-        </ul>
-    </center>
+  <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <style>
+          body {
+              margin: 0;
+              font-family: Arial, Helvetica, sans-serif;
+          }
+  
+  .topnav {
+    position: relative;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  .topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .topnav a.active {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .topnav-centered a {
+    float: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .topnav-right {
+    float: right;
+  }
+  
+  /* Responsive navigation menu (for mobile devices) */
+  @media screen and (max-width: 600px) {
+    .topnav a, .topnav-right {
+      float: none;
+      display: block;
+    }
     
-    <p>This is my personal page.</p>
+    .topnav-centered a {
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: none;
+    }
+  }
+  
+  #toc_container {
+      background: #f9f9f9 none repeat scroll 0 0;
+      border: 10px solid #aaa;
+      display: table;
+      font-size: 95%;
+      margin-bottom: 1em;
+      padding: 20px;
+      width: auto;
+      margin: 1%;
+  }
+  
+  .toc_title {
+      font-weight: 700;
+      text-align: center;
+  }
+  
+  #toc_container li, #toc_container ul, #toc_container ul li{
+      list-style: outside none none !important;
+  }
+  
+          .textDiv {
+             
+              padding: 50px;
+              padding-top: 1px;
+              width: 50%;
+              text-align: center;
+              margin: auto;
+  
+  
+          }
+  
+  </style>
+  
+      <title>Luiz Sampaio - Stuff</title>
+  
+  </head>
+  
+  <body bgcolor="#eaeaea">
+      
+      <center>
+      <img src="images/image10.png" width=100%>
+      </center>
+  
+  
+      <div class="topnav">
+  
+          <div class="topnav-centered">
+              <a href="index.html" class="active">Home</a>
+          </div>
+    
+          <a href="teaching.html">Teaching</a>
+          <a href="stuff.html">Stuff</a>
+    
+          <div class="topnav-right">
+              <a href="cv.html">CV</a>
+          </div>
+    
+      </div>
+    
 </body>
 
 </html>
