@@ -1,0 +1,248 @@
+
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+.topnav {
+  position: relative;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.topnav-centered a {
+  float: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.topnav-right {
+  float: right;
+}
+
+/* Responsive navigation menu (for mobile devices) */
+@media screen and (max-width: 600px) {
+  .topnav a, .topnav-right {
+    float: none;
+    display: block;
+  }
+  
+  .topnav-centered a {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+  }
+}
+
+#toc_container {
+    background: #f9f9f9 none repeat scroll 0 0;
+    border: 10px solid #aaa;
+    display: table;
+    font-size: 95%;
+    margin-bottom: 1em;
+    padding: 20px;
+    width: auto;
+    margin: 1%;
+}
+
+.toc_title {
+    font-weight: 700;
+    text-align: center;
+}
+
+#toc_container li, #toc_container ul, #toc_container ul li{
+    list-style: outside none none !important;
+}
+
+        .textDiv {
+           
+            padding: 50px;
+            padding-top: 1px;
+            width: 50%;
+            text-align: center;
+            margin: auto;
+
+
+        }
+
+</style>
+
+    <title>Luiz Sampaio - Stuff</title>
+
+</head>
+
+<body bgcolor="#eaeaea">
+    
+    <center>
+    <img src="images/image10.png" width=100%>
+    </center>
+
+
+    <div class="topnav">
+
+        <div class="topnav-centered">
+            <a href="index.html">Home</a>
+        </div>
+  
+        <a href="teaching.html">Teaching</a>
+        <a href="stuff.html" class="active">Stuff</a>
+  
+        <div class="topnav-right">
+            <a href="cv.html">CV</a>
+        </div>
+  
+    </div>
+   
+    <!-- Table of contents and Intro-->
+    <div style="width: 100%"; display: table;">
+    <div style="display: table-row">
+    <div id="toc_container" style="width: 30%; display: table-cell; margin: 10px;">
+        <p class="toc_title">Contents</p>
+        <ul class="toc_list">
+            <li><a href="#latex">Latex</a>
+            <ul>
+                <li><a href="#math">Math mode</a></li>
+                <li><a href="#figures">Figures</a></li>
+            </ul>
+            </li>
+            <li><a href="#programming">Programming</a>
+            <ul>
+                <li><a href="#python">Python</a></li>
+            </ul>
+            </li>
+        </ul>
+    </div>
+    <div style="display: table-cell; margin: 10px; padding-left: 10px">
+        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ultricies, urna a dictum lacinia, ex metus vestibulum dui, vitae ullamcorper felis arcu et turpis. Suspendisse blandit mi mauris, nec ornare mi vehicula nec. In id ornare ante. Maecenas posuere lectus a risus aliquet suscipit. Vestibulum sed laoreet eros. Ut maximus mauris in varius dictum. Nullam lobortis dui ante, vitae faucibus leo mollis et. Vestibulum varius eros ut libero consectetur, et accumsan libero fringilla. Nam quis ligula vulputate, ultrices nibh ut, ornare ligula. Donec nec magna sit amet velit mattis interdum. Etiam ut vestibulum metus.</p>
+    </div>
+    </div>
+    </div>
+
+    <div class="textDiv">
+    
+    <h1 id="latex">Latex</h1>
+    <hr width=45%>
+
+        <h2 id="math">Math mode</h2>
+
+        <ul><li>
+            <b>Spaces inside math mode</b>
+        </li></ul>
+        
+        <center>
+        <table border="1" cellpadding="5" cellspacing="5">
+            <tr>
+                <th> Latex Code </th>
+                <th> Description </th>
+            </tr>
+            <tr>
+                <td> <code>\quad</code> </td>
+                <td> space equal to the current font size </td>
+            </tr>
+            <tr>
+                <td> \, </td>
+                <td> 3/18 of <code>\quad</code> </td>
+            </tr>
+            <tr>
+                <td><code>\:</code> </td>
+                <td> 4/18 of <code>\quad</code> (= 4 mu)</td>
+            </tr>
+            <tr>
+                <td><code>\;</code> </td>
+                <td> 5/18 of <code>\quad</code> (= 5 mu)</td>
+            </tr>
+            <tr>
+                <td><code>\!</code> </td>
+                <td> -3/18 of <code>\quad</code> (= -3 mu)</td>
+            </tr>
+            <tr>
+                <td><code>\ </code> (space after backslash!) </td>
+                <td> equivalent of space in normal text</td>
+            </tr>
+            <tr>
+                <td><code>\qquad</code> </td>
+                <td> twice of <code>\quad</code> (= 36 mu)</td>
+            </tr>
+
+        </table>
+        </center>
+
+        <p>If you want plain text inside math mode, you can do <code>\textrm{}</code></p>
+
+        <ul><li>
+            <b>Sum with sub and superscript well positioned</b>
+        </li></ul>
+
+        <p> The command is <code>\displaystyle</code>. You can do <code>\everymath{\displaystyle}</code>.</p>
+
+        <h2 id="figures">Figures</h2>
+
+        <!-- Figuras lado a lado-->
+
+        
+
+
+
+   
+
+    <h1 id="programming">Programming</h1>
+    <hr width=45%>
+
+        <h2 id="python">Python</h2>
+
+        <ul><li>
+                <b>Nice and quick plot</b>
+        </li></ul>
+
+        <div align="left">
+        <code>
+        f, (ax1, ax2, ax3, ax4) = plt.subplots(4, sharex=True, figsize=(16.18,10)) <br>
+
+        ax1.grid(color='k', linestyle='--', linewidth=0.2) <br>
+        ax1.plot(data, label="Data") <br>
+        ax1.legend(shadow=True, fontsize=10, loc=1) <br>
+        <br>
+        ## ... do for each axis <br>
+        ax4.set(ylabel='Accelerometer '+r'$(m/s^2)$', xlabel='Samples')<br>
+        <br>
+        plt.savefig("results/data.png", bbox_inches='tight')<br>
+        plt.savefig("results/data.svg", bbox_inches='tight')<br>
+        plt.show()
+    
+        </code>
+
+        </div>
+ 
+    
+    </div>
+   
+</body>
+
+</html>
