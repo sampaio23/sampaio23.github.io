@@ -6,6 +6,18 @@
     <description>Recent content in Posts on Luiz Sampaio</description>
     <generator>Hugo</generator>
     <language>en-us</language>
+    <lastBuildDate>Sat, 25 Jul 2026 20:17:42 +0100</lastBuildDate>
     <atom:link href="https://sampaio23.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Import raw images into LXD</title>
+      <link>https://sampaio23.github.io/posts/import-raw-images-into-lxd/</link>
+      <pubDate>Sat, 25 Jul 2026 20:17:42 +0100</pubDate>
+      <guid>https://sampaio23.github.io/posts/import-raw-images-into-lxd/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Sometimes I want to quickly test simple things on raw images, and using LXD is a convenient way. This post documents how to import a raw Ubuntu Core image so you can test it.&lt;/p&gt;
+&lt;h2 id=&#34;importing&#34;&gt;Importing&lt;/h2&gt;
+&lt;p&gt;LXD needs &lt;em&gt;at least&lt;/em&gt; two files: your image in qcow2 format and a metadata file (in a tar file). I will be using the Ubuntu Core 26 image as an example.&lt;/p&gt;
+&lt;p&gt;First, download the raw image, uncompress it and convert to qcow2:&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

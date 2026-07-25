@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Import raw images into LXD | Luiz Sampaio</title>
+<meta name="keywords" content="lxd, scriplet">
+<meta name="description" content="Introduction
+Sometimes I want to quickly test simple things on raw images, and using LXD is a convenient way. This post documents how to import a raw Ubuntu Core image so you can test it.
+Importing
+LXD needs at least two files: your image in qcow2 format and a metadata file (in a tar file). I will be using the Ubuntu Core 26 image as an example.
+First, download the raw image, uncompress it and convert to qcow2:">
+<meta name="author" content="">
+<link rel="canonical" href="https://sampaio23.github.io/posts/import-raw-images-into-lxd/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.cd9298b33628769aa1bc1acebbbfd7aa11ce81dfe03484d479e1907760249a1d.css" integrity="sha256-zZKYszYodpqhvBrOu7/XqhHOgd/gNITUeeGQd2Akmh0=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://sampaio23.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://sampaio23.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://sampaio23.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://sampaio23.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://sampaio23.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://sampaio23.github.io/posts/import-raw-images-into-lxd/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="https://sampaio23.github.io/posts/import-raw-images-into-lxd/">
+  <meta property="og:site_name" content="Luiz Sampaio">
+  <meta property="og:title" content="Import raw images into LXD">
+  <meta property="og:description" content="Introduction Sometimes I want to quickly test simple things on raw images, and using LXD is a convenient way. This post documents how to import a raw Ubuntu Core image so you can test it.
+Importing LXD needs at least two files: your image in qcow2 format and a metadata file (in a tar file). I will be using the Ubuntu Core 26 image as an example.
+First, download the raw image, uncompress it and convert to qcow2:">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-07-25T20:17:42+01:00">
+    <meta property="article:modified_time" content="2026-07-25T20:17:42+01:00">
+    <meta property="article:tag" content="Lxd">
+    <meta property="article:tag" content="Scriplet">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Import raw images into LXD">
+  <meta name="twitter:description" content="Introduction Sometimes I want to quickly test simple things on raw images, and using LXD is a convenient way. This post documents how to import a raw Ubuntu Core image so you can test it.
+Importing LXD needs at least two files: your image in qcow2 format and a metadata file (in a tar file). I will be using the Ubuntu Core 26 image as an example.
+First, download the raw image, uncompress it and convert to qcow2:">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://sampaio23.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Import raw images into LXD",
+      "item": "https://sampaio23.github.io/posts/import-raw-images-into-lxd/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Import raw images into LXD",
+  "name": "Import raw images into LXD",
+  "description": "Introduction Sometimes I want to quickly test simple things on raw images, and using LXD is a convenient way. This post documents how to import a raw Ubuntu Core image so you can test it.\nImporting LXD needs at least two files: your image in qcow2 format and a metadata file (in a tar file). I will be using the Ubuntu Core 26 image as an example.\nFirst, download the raw image, uncompress it and convert to qcow2:\n",
+  "keywords": [
+    "lxd", "scriplet"
+  ],
+  "articleBody": "Introduction Sometimes I want to quickly test simple things on raw images, and using LXD is a convenient way. This post documents how to import a raw Ubuntu Core image so you can test it.\nImporting LXD needs at least two files: your image in qcow2 format and a metadata file (in a tar file). I will be using the Ubuntu Core 26 image as an example.\nFirst, download the raw image, uncompress it and convert to qcow2:\nwget https://cdimage.ubuntu.com/ubuntu-core/26/stable/current/ubuntu-core-26-amd64.img.xz unxz ubuntu-core-26-amd64.img.xz qemu-img convert -f raw -O qcow2 ubuntu-core-26-amd64.img ubuntu-core-26-amd64.qcow2 Next, create the metadata file. The example below is a minimal version - other parameters are allowed, but this was the smallest I could get.\narchitecture: x86_64 creation_date: 1785005800 You can get the creation date by runnning date +%s to get the Unix timestamp.\nCompress the metadata file:\ntar cJf metadata.tar.xz metadata.yaml You can finally import your image by passing metadata and the qcow2 image with:\nlxc image import metadata.tar.xz ubuntu-core-26-amd64.qcow2 --alias uc26 Result After initializing and starting an instance with the console, we can see that Ubuntu Core boots up and I am get into console-conf to configure the system:\nlxc init uc26 my-instance --vm lxc start my-instance --console ",
+  "wordCount" : "200",
+  "inLanguage": "en",
+  "datePublished": "2026-07-25T20:17:42+01:00",
+  "dateModified": "2026-07-25T20:17:42+01:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://sampaio23.github.io/posts/import-raw-images-into-lxd/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Luiz Sampaio",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://sampaio23.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="https://sampaio23.github.io/" accesskey="h" title="Luiz Sampaio (Alt + H)">Luiz Sampaio</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="https://sampaio23.github.io/posts/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://sampaio23.github.io/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://sampaio23.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="/posts/">Posts</a>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+</nav>
+    <h1 class="post-title entry-hint-parent">
+      Import raw images into LXD
+    </h1>
+    <div class="post-meta">
+
+<span title='2026-07-25 20:17:42 +0100 IST'>July 25, 2026</span>&nbsp;·&nbsp;<span>1 min</span>
+
+</div>
+  </header> 
+  <div class="post-content md-content"><h2 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h2>
+<p>Sometimes I want to quickly test simple things on raw images, and using LXD is a convenient way. This post documents how to import a raw Ubuntu Core image so you can test it.</p>
+<h2 id="importing">Importing<a hidden class="anchor" aria-hidden="true" href="#importing">#</a></h2>
+<p>LXD needs <em>at least</em> two files: your image in qcow2 format and a metadata file (in a tar file). I will be using the Ubuntu Core 26 image as an example.</p>
+<p>First, download the raw image, uncompress it and convert to qcow2:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wget https://cdimage.ubuntu.com/ubuntu-core/26/stable/current/ubuntu-core-26-amd64.img.xz
+</span></span><span style="display:flex;"><span>unxz ubuntu-core-26-amd64.img.xz
+</span></span><span style="display:flex;"><span>qemu-img convert -f raw -O qcow2 ubuntu-core-26-amd64.img ubuntu-core-26-amd64.qcow2
+</span></span></code></pre></div><p>Next, create the metadata file. The example below is a minimal version - other parameters are allowed, but this was the smallest I could get.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">architecture</span>: <span style="color:#ae81ff">x86_64</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">creation_date</span>: <span style="color:#ae81ff">1785005800</span>
+</span></span></code></pre></div><blockquote>
+<p>You can get the creation date by runnning <code>date +%s</code> to get the Unix timestamp.</p>
+</blockquote>
+<p>Compress the metadata file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tar cJf metadata.tar.xz metadata.yaml 
+</span></span></code></pre></div><p>You can finally import your image by passing metadata and the qcow2 image with:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>lxc image import metadata.tar.xz ubuntu-core-26-amd64.qcow2 --alias uc26
+</span></span></code></pre></div><h2 id="result">Result<a hidden class="anchor" aria-hidden="true" href="#result">#</a></h2>
+<p>After initializing and starting an instance with the console, we can see that Ubuntu Core boots up and I am get into <code>console-conf</code> to configure the system:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>lxc init uc26 my-instance --vm
+</span></span><span style="display:flex;"><span>lxc start my-instance --console
+</span></span></code></pre></div><p><img loading="lazy" src="/posts/import-raw-images-into-lxd/result.png"></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://sampaio23.github.io/tags/lxd/">Lxd</a></li>
+      <li><a href="https://sampaio23.github.io/tags/scriplet/">Scriplet</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://sampaio23.github.io/">Luiz Sampaio</a></span> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
