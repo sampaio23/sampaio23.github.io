@@ -6,21 +6,22 @@
     <description>Recent content in Home on Luiz Sampaio</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 25 Jul 2026 20:17:42 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 01 Sep 2026 13:56:48 +0100</lastBuildDate>
     <atom:link href="https://sampaio23.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Introduction</title>
-      <link>https://sampaio23.github.io/projects/example-project/001-introduction/</link>
-      <pubDate>Sat, 25 Jul 2026 18:30:00 +0100</pubDate>
-      <guid>https://sampaio23.github.io/projects/example-project/001-introduction/</guid>
-      <description>&lt;p&gt;This is the first entry in the example project series.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Next Steps</title>
-      <link>https://sampaio23.github.io/projects/example-project/002-next-steps/</link>
-      <pubDate>Sat, 25 Jul 2026 18:35:00 +0100</pubDate>
-      <guid>https://sampaio23.github.io/projects/example-project/002-next-steps/</guid>
-      <description>&lt;p&gt;This is the second entry in the example project series.&lt;/p&gt;</description>
+      <title>01 - Custom Buildroot Image running on RAM</title>
+      <link>https://sampaio23.github.io/projects/rpi-pxe-nas/001-custom-buildroot-image-running-on-ram/</link>
+      <pubDate>Tue, 01 Sep 2026 13:56:48 +0100</pubDate>
+      <guid>https://sampaio23.github.io/projects/rpi-pxe-nas/001-custom-buildroot-image-running-on-ram/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;My first goal is to have a working system running from RAM with a fixed IP
+address and an SSH server.&lt;/p&gt;
+&lt;h1 id=&#34;building-the-buildroot-default-configuration&#34;&gt;Building the Buildroot default configuration&lt;/h1&gt;
+&lt;p&gt;As I am using the Raspberry Pi 4 Model B, I will first build the default
+Raspberry Pi image that comes with Buildroot. For that, I will download
+Buildroot and choose the default configuration. I recommend taking a look at
+the &lt;a href=&#34;https://buildroot.org/downloads/manual/manual.html&#34;&gt;Buildroot User Manual&lt;/a&gt;
+so you install the necessary dependencies.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Import raw images into LXD</title>

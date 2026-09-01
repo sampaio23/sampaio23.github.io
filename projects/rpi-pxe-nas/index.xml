@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Custom Raspberry Pi image for NAS and PXE server on Luiz Sampaio</title>
+    <link>https://sampaio23.github.io/projects/rpi-pxe-nas/</link>
+    <description>Recent content in Custom Raspberry Pi image for NAS and PXE server on Luiz Sampaio</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 01 Sep 2026 13:56:48 +0100</lastBuildDate>
+    <atom:link href="https://sampaio23.github.io/projects/rpi-pxe-nas/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>01 - Custom Buildroot Image running on RAM</title>
+      <link>https://sampaio23.github.io/projects/rpi-pxe-nas/001-custom-buildroot-image-running-on-ram/</link>
+      <pubDate>Tue, 01 Sep 2026 13:56:48 +0100</pubDate>
+      <guid>https://sampaio23.github.io/projects/rpi-pxe-nas/001-custom-buildroot-image-running-on-ram/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;My first goal is to have a working system running from RAM with a fixed IP
+address and an SSH server.&lt;/p&gt;
+&lt;h1 id=&#34;building-the-buildroot-default-configuration&#34;&gt;Building the Buildroot default configuration&lt;/h1&gt;
+&lt;p&gt;As I am using the Raspberry Pi 4 Model B, I will first build the default
+Raspberry Pi image that comes with Buildroot. For that, I will download
+Buildroot and choose the default configuration. I recommend taking a look at
+the &lt;a href=&#34;https://buildroot.org/downloads/manual/manual.html&#34;&gt;Buildroot User Manual&lt;/a&gt;
+so you install the necessary dependencies.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
